@@ -1,6 +1,7 @@
 .gitignore
 LICENSE
 Manifest
+README.md
 Rakefile
 harmony.gemspec
 lib/harmony.rb

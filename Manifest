@@ -1,4 +1,5 @@
 .gitignore
+LICENSE
 Manifest
 Rakefile
 harmony.gemspec

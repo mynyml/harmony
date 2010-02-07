@@ -1,4 +1,3 @@
-require 'pathname'
 require 'tempfile'
 
 require 'johnson/tracemonkey'

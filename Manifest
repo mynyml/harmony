@@ -3,6 +3,7 @@ LICENSE
 Manifest
 README.md
 Rakefile
+docs.watchr
 harmony.gemspec
 lib/harmony.rb
 lib/harmony/page.rb

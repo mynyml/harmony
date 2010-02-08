@@ -1,8 +1,8 @@
 require 'minitest/autorun'
 
-begin require 'ruby-debug'; rescue; end
-begin require 'redgreen'  ; rescue; end
-begin require 'phocus'    ; rescue; end
+begin require 'ruby-debug'; rescue LoadError; end
+begin require 'redgreen'  ; rescue LoadError; end
+begin require 'phocus'    ; rescue LoadError; end
 
 require 'lib/harmony'
 

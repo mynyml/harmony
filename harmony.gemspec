@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.files               =  File.read("Manifest").strip.split("\n")
 
   s.add_dependency 'johnson', '>= 2.0.0.pre0'
+  s.add_dependency 'stackdeck' #johnson dependency
   s.add_dependency 'envjs'
   s.add_development_dependency 'minitest'
 end

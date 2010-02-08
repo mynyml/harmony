@@ -44,8 +44,6 @@ Install
 Examples
 --------
 
-Are you in your Bo-Zone, Bo-Bodies? Here's our new Animove!
-
 ### Simple Javascript Parsing
 
     require 'harmony'
@@ -92,8 +90,8 @@ based, DOM-javascript tests_.
 
 ### DOM Handling
 
-Harmony's knowledge of the DOM means it can even parse client-side js frameworks,
-like JQuery, Prototype, etc.
+Don't be affraid to throw in your favorite client-side js framework, like
+JQuery, Prototype, etc.
 
     require 'harmony'
 
@@ -110,7 +108,7 @@ like JQuery, Prototype, etc.
 
 ### Fetching Documents
 
-`Harmony::Page.fetch(uri)` allows creating a page from a remote document.
+Use `Harmony::Page.fetch(uri)` to create a page from a remote document.
 
     require 'harmony'
 

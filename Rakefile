@@ -34,6 +34,6 @@ end
 desc "Generate YARD Documentation"
 task :yardoc do
   require 'yard'
-  YARD::CLI::Yardoc.run *%w( --no-highlight -o doc/yard --readme README.md - LICENSE )
+  YARD::CLI::Yardoc.run *%w( --no-private --no-highlight -o doc/yard --readme README.md --markup markdown - LICENSE )
 end
 

@@ -19,7 +19,7 @@ Signal.trap('INT' ) { abort("\n") } # Ctrl-C
 # --------------------------------------------------
 def yard
   print "Updating yardocs... "; STDOUT.flush
-  YARD::CLI::Yardoc.run *%w( --no-highlight -o doc/yard --readme README.md - LICENSE )
+  YARD::CLI::Yardoc.run *%w( --no-private --no-highlight -o doc/yard --readme README.md --markup markdown - LICENSE )
   print "done\n"
 end
 

@@ -9,7 +9,6 @@ class PageTest < MiniTest::Unit::TestCase
     assert_respond_to Page, :fetch
     assert_respond_to Page, :new
     assert_respond_to PAGE, :window
-    assert_respond_to PAGE, :window=
     assert_respond_to PAGE, :document
     assert_respond_to PAGE, :execute_js
     assert_respond_to PAGE, :x

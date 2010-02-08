@@ -49,7 +49,9 @@ module Harmony
     #   new page object preloaded with fetched document
     #
     def self.fetch(uri)
-      new.tap {|page| page.instance_variable_set(:@window, Window.from_uri(uri)) }
+      page = new
+      page.instance_variable_set(:@window, Window.from_uri(uri))
+      page
     end
 
     # Create new page containing given document.

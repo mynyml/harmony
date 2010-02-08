@@ -42,10 +42,10 @@ class PageTest < MiniTest::Unit::TestCase
   end
 
   test "fetches remote document" do
-    Tempfile.open('testdoc') {|f| f << <<-HTML; @path = f.path }
+    path = tempfile(<<-HTML)
       <html><head><title>foo</title></head><body></body></html>
     HTML
-    page = Page.fetch("file://#{@path}")
+    page = Page.fetch("file://#{path}")
     assert_equal 'foo', page.document.title
   end
 
@@ -56,4 +56,10 @@ class PageTest < MiniTest::Unit::TestCase
   test "casting to string" do
     assert_equal "<html><head><title></title></head><body></body></html>", Page.new.to_s
   end
+
+  private
+    def tempfile(content)
+      Tempfile.open('abc') {|f| f << content; @__path = f.path }
+      @__path
+    end
 end

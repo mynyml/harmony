@@ -13,6 +13,7 @@ class PageTest < MiniTest::Unit::TestCase
     assert_respond_to PAGE, :document
     assert_respond_to PAGE, :execute_js
     assert_respond_to PAGE, :x
+    assert_respond_to PAGE, :to_s
   end
 
   test "document shortcut" do
@@ -35,7 +36,6 @@ class PageTest < MiniTest::Unit::TestCase
         </body>
       </html>
     HTML
-
     assert_equal 'Harmony', page.document.title
     assert_equal 2, page.x(<<-JS)
       document.getElementsByTagName('div').length
@@ -46,12 +46,15 @@ class PageTest < MiniTest::Unit::TestCase
     Tempfile.open('testdoc') {|f| f << <<-HTML; @path = f.path }
       <html><head><title>foo</title></head><body></body></html>
     HTML
-
     page = Page.fetch("file://#{@path}")
     assert_equal 'foo', page.document.title
   end
 
   test "default window" do
     assert_empty Page.new.document.title
+  end
+
+  test "casting to string" do
+    assert_equal "<html><head><title></title></head><body></body></html>", Page.new.to_s
   end
 end

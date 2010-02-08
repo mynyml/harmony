@@ -37,10 +37,6 @@ module Harmony
       @window ||= Window.blank
     end
 
-    def document
-      window.document
-    end
-
     def initialize(document=nil)
       @window = Window.from_document(document) if document
     end
@@ -50,6 +46,14 @@ module Harmony
       window.evaluate(code)
     end
     alias :x :execute_js
+
+    def document
+      window.document
+    end
+
+    def to_s
+      document.innerHTML
+    end
   end
 end
 

@@ -3,14 +3,7 @@ require 'test/test_helper'
 class PageTest < MiniTest::Unit::TestCase
   include Harmony
 
-  PAGE = Page.new(<<-HTML)
-    <html>
-      <head>
-        <title>Foo</title>
-      </head>
-      <body></body>
-    </html>
-  HTML
+  PAGE = Page.new
 
   test "api" do
     assert_respond_to Page, :fetch

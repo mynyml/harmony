@@ -6,7 +6,7 @@ require 'envjs/runtime'
 module Harmony
   class Page
 
-    # window factory
+    # Window factory
     #
     # @private
     module Window #:nodoc:
@@ -52,16 +52,6 @@ module Harmony
       new.tap {|page| page.instance_variable_set(:@window, Window.from_uri(uri)) }
     end
 
-    # DOM document's `window` object. Equivalent to the return value of
-    # `page.execute_js('window')`
-    #
-    # @return [Object]
-    #   window DOM object
-    #
-    def window
-      @window ||= Window.blank
-    end
-
     # Create new page containing given document.
     #
     # @param [String] document
@@ -84,6 +74,16 @@ module Harmony
       window.evaluate(code)
     end
     alias :x :execute_js
+
+    # DOM document's `window` object. Equivalent to the return value of
+    # `page.execute_js('window')`
+    #
+    # @return [Object]
+    #   window DOM object
+    #
+    def window
+      @window ||= Window.blank
+    end
 
     # Convenience method, equivalent to the return value of
     # `page.execute_js('window.document')`

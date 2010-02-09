@@ -58,8 +58,8 @@ string of javascript code, executes it and returns the last statement's value
 
 One interesting use of Harmony is to test your javascript code within your ruby
 application's own tests (test/unit, minitest, RSpec, nanotest, etc). Which
-consequently means that you can now run _browser-less, fully command-line
-based, DOM-javascript tests_.
+consequently means that you can now run browser-less, fully command-line
+based, DOM-javascript tests.
 
     require 'test/unit'
     require 'harmony'
@@ -80,12 +80,16 @@ based, DOM-javascript tests_.
 
 ### DOM Handling
 
+Don't be affraid to throw in your favorite client-side js framework, like
+JQuery or Prototype. And notice that scripts linked to in `<script>` tags will
+automatically get pulled in.
+
     require 'harmony'
 
     page = Harmony::Page.new(<<-HTML)
       <html>
         <head>
-          <title>Foo</title>
+          <script src="javascripts/jquery.js" type="text/javascript"></script>
         </head>
         <body>
           <div id="widget">ohaie</div>
@@ -93,13 +97,7 @@ based, DOM-javascript tests_.
       </html>
     HTML
 
-    page.execute_js( "document.title" ) #=> "Foo"
-
-Don't be affraid to throw in your favorite client-side js framework, like
-JQuery or Prototype.
-
-    page.execute_js( File.read('path/to/jquery.js') )
-    page.execute_js( "$('#widget').innerHTML" ) #=> "ohaie"
+    page.execute_js("$('#widget').innerHTML") #=> "ohaie"
 
 ### Fetching Documents
 

@@ -67,13 +67,13 @@ based, DOM-javascript tests.
     class JavascriptTest < Test::Unit::TestCase
       def setup
         @page = Harmony::Page.new
-        @page.execute_js(File.read('public/javascripts/foo.js'))
+        @page.load('public/javascripts/foo.js')
       end
 
       def test_foo
         assert_equal "world", @page.execute_js(<<-JS)
           foo = new Foo;
-          foo.hello;
+          foo.hello();
         JS
       end
     end

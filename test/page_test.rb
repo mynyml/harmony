@@ -57,6 +57,14 @@ class PageTest < MiniTest::Unit::TestCase
     assert_equal "<html><head><title></title></head><body></body></html>", Page.new.to_s
   end
 
+  test "loads javascript file" do
+    path = tempfile(<<-HTML)
+      function foo() { return 'bar' };
+    HTML
+    page = Page.new.load(path)
+    assert_equal 'bar', page.x('foo()')
+  end
+
   private
     def tempfile(content)
       Tempfile.open('abc') {|f| f << content; @__path = f.path }

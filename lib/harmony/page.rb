@@ -1,3 +1,4 @@
+require 'pathname'
 require 'tempfile'
 
 require 'johnson/tracemonkey'
@@ -62,6 +63,18 @@ module Harmony
     #
     def initialize(document=nil)
       @window = Window.from_document(document) if document
+    end
+
+    # Load a javascript file in page's context
+    #
+    # @param [String] path
+    #   path to js file
+    #
+    # @return [Page] self
+    #
+    def load(path)
+      window.load(path.to_s)
+      self
     end
 
     # Evaluate Javascript code within this page's context.

@@ -1,5 +1,5 @@
 module Harmony
-  VERSION = '0.0.0'
+  VERSION = '0.5'
 
   autoload :Page, 'harmony/page'
 end

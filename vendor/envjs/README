@@ -1,0 +1,36 @@
+This is a fork of the env.js project (http://github.com/thatcher/env-js/). See that link for env.js details.
+
+This fork is based on the Johnson Ruby gem (http://github.com/jbarnette/johnson) and will become obsolete when the Johnson support has been reintegrated into the master repo.
+
+For now, you can install the envjs gem by installing Johnson:
+
+  gem install johnson --prerelease
+
+(You'll need to manually install any prerequisites it asks for) and then installing the envjs gem with
+
+  gem install envjs
+
+The envjs gem provides the envjsrb command, which functions as an extended version of the Johnson javascript shell. For example:
+
+mbp:env-js smparkes$ envjsrb
+js> this
+=> [object Window 0]
+js> window.location
+=> about:blank
+js> document.innerHTML
+=> "<html><head><title></title></head><body></body></html>"
+js> 
+
+It's also possible to embed the envjs interpreter similar to the way it's done in Johnson, e.g.,
+
+require 'rubygems' # if necessary
+require 'johnson/tramonkey'
+require 'envjs/runtime'
+
+envjs = Johnson::Runtime.new
+envjs.extend Envjs::Runtime
+window = envjs.evaluate("")
+puts window.location.to_s # == "about:blank"
+puts window.document.innerHTML # == "<html><head><title></title></head><body></body></html>"
+
+Comments to http://groups.google.com/group/envjs or #envjs on freenode.

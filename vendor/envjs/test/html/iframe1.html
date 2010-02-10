@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+ * This file is a component of env.js,
+ *     http://github.com/gleneivey/env-js/commits/master/README
+ * a Pure JavaScript Browser Environment
+ * Copyright 2009 John Resig, licensed under the MIT License
+ *     http://www.opensource.org/licenses/mit-license.php
+  -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en" dir="ltr" id="html">
+  <head>
+    <title>Content document for IFRAME element in env.js unit test suite</title>
+  </head>
+  <body onload="try{checkEventsWithinIframe();}catch(e){;}">
+    <p id="anElementWithText">
+      This is the text content of a paragraph element.
+    </p>
+
+    <!-- elements and scripting here match test cases in ../unit/window.js -->
+    <script>//ensure that we can execute JS inline while loading
+      document.write(
+        '\x3cp id="js_generated_p"\x3eDynamically-generated\x3c/p\x3e');
+    </script>
+
+    <script>//verify that our "document" object actually points to this page
+      document.write('\x3cp id="internalDocRefResult"\x3e');
+      if (document.getElementById('anElementWithText'))
+        document.write("First paragraph element exists-found.");
+      else
+        document.write("Eeek!  Didn't find paragraph id=anElementWithText.");
+      document.write('\x3c/p\x3e');
+    </script>
+
+    <script>// append 'p id=appended "An appended paragraph"' to doc....
+      function checkEventsWithinIframe(){
+        var t = document.createTextNode("An appended paragraph");
+        var p = document.createElement("p");
+        p.setAttribute("id", "appended");
+        p.appendChild(t);
+        document.getElementsByTagName('body')[0].appendChild(p);
+      }
+    </script>
+  </body>
+</html>

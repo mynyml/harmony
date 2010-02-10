@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+ * This file is a component of env.js,
+ *     http://github.com/gleneivey/env-js/commits/master/README
+ * a Pure JavaScript Browser Environment
+ * Copyright 2009 John Resig, licensed under the MIT License
+ *     http://www.opensource.org/licenses/mit-license.php
+  -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en" dir="ltr" id="html">
+  <head>
+    <title>(event handler) scope testing, env.js units, IFRAME content page
+    </title>
+  </head>
+  <body>
+    <script>
+      function appendAPara(doc, target, pId, pMsg){
+        var t = doc.createTextNode(pMsg);
+        var p = doc.createElement("p");
+        p.setAttribute("id", pId);
+        p.appendChild(t);
+        target.appendChild(p);
+      }
+
+      function makeAPara(){
+        var paraText =
+"This is a paragraph, made dynamically, with the following components: ";
+        for (var i=1; (i) != arguments.length; i++)
+          paraText += "--" + arguments[i] + "--    ";
+        appendAPara(document, document.getElementById('div1'),
+                    arguments[0], paraText);
+      }
+
+      aVar = "Strict";
+      function checkLexicalScoping(target){
+        appendAPara(document, target, "lex",
+                    "Lexical scoping is " + aVar);
+      }
+
+      // these variables are used in the script block for div3, below.
+      //   Intentionally not using 'var' so these go into the global space
+      bVar = 42;
+      target = 'p7';
+    </script>
+
+    <img id="img1" src="img.png" onclick="appendAPara(document, document.getElementsByTagName('body')[0], 'p1', 'img1 click');" />
+
+    <div id="div1"
+        onclick="appendAPara(document, this, 'p2', 'div1 click');" >
+      This div has some unencapsulated text in it, which we'll follow
+      with a 'p' element.
+    </div>
+
+    <div id="div1a"
+        onclick="try { var x = $env;} catch(e){ appendAPara(document, this, 'p2a', 'div1a click') };" >
+      This div has some unencapsulated text in it, which we'll follow
+      with a 'p' element.
+    </div>
+
+    <div id="div2" align="center"
+         onclick="aVar='Overridden!'; checkLexicalScoping(this);">
+      <form id="form1" action="post-url" method="post">
+        <input id="text1" type="text" size="42"
+          onchange="makeAPara('p3', value, type, size, action, align);"
+        />
+      </form>
+    </div>
+
+    <div id="div3">
+      <p id="p4">
+        More text.  This time, expect event handler to append another
+        sentence to this paragraph.  
+      </p>
+    </div>
+    <script>
+      target = "p4"; // already defined in global, so modify not redefine
+      document.getElementById('div3').onclick = function(){
+        var targetElement = document.getElementById(target);
+        var t = document.createTextNode("Third sentence contains the number " +
+                                        bVar + ".");
+        targetElement.appendChild(t);
+      }
+    </script>
+  </body>
+</html>

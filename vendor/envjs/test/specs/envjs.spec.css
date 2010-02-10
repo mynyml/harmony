@@ -1,0 +1,46 @@
+html{
+    background-color:#333;
+}
+body.container{
+    margin-top:20px;
+    border:none;
+    background-color:#333;
+}
+body.container strong {
+    text-transform:none;
+}
+h2#qunit-banner {
+    -moz-border-radius:30px;
+    padding:10px 10px 50px 10px;
+    text-align:center;
+}
+h2#qunit-banner.pass {
+    background-color:#66BB66;
+    text-align:center;
+}
+h2#qunit-banner #envjs-icon{
+    margin:5px 5px 0 20px;
+}
+h2#qunit-userAgent {
+    -moz-border-radius:0px;
+    background-color:#111;
+    color:white;
+    text-align:center;
+    margin:-40px 0 0 0;
+    padding:10px;
+}
+#qunit-test-summary{
+    -moz-border-radius-bottomleft:30px;
+    -moz-border-radius-bottomright:30px;
+    background-color:#338;
+    color:#99FFFF;
+}
+#qunit-tests{
+    background-color:#fff;
+    margin:0 0 40px;
+    padding:15px 60px;
+}
+p#qunit-testresult {
+    text-align:center;
+    padding:0 0 20px;
+}

@@ -3,7 +3,7 @@ require 'lib/harmony'
 Gem::Specification.new do |s|
   s.name                = "harmony"
   s.summary             = "Javascript + DOM in your ruby, the simple way"
-  s.description         = "yo dawg, i heard you liked developing web apps while using ruby on the cmd line, so i added javascript and a DOM in your ruby so you could js the dom without browser while you code in your editor"
+  s.description         = "Javascript + DOM in your ruby, the simple way."
   s.author              = "mynyml"
   s.email               = "mynyml@gmail.com"
   s.homepage            = "http://github.com/mynyml/harmony"

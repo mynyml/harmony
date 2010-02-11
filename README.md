@@ -29,6 +29,10 @@ Harmony provides a simple DSL to execute javascript + DOM code within ruby.
 Install
 -------
 
+    # manually install dependencies until rubygems issue is resolved
+    gem install stackdeck
+    gem install johnson -v "2.0.0.pre0"
+
     gem install harmony
 
 Examples

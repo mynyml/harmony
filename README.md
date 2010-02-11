@@ -26,15 +26,6 @@ Summary
 
 Harmony provides a simple DSL to execute javascript + DOM code within ruby.
 
-Install
--------
-
-    # manually install dependencies until rubygems issue is resolved
-    gem install stackdeck
-    gem install johnson -v "2.0.0.pre0"
-
-    gem install harmony
-
 Examples
 --------
 
@@ -113,6 +104,16 @@ Use `Harmony::Page.fetch(uri)` to create a page from a remote document.
     page.execute_js('document.title') #=> "Example Web Page"
 
 `fetch` also accepts "file://" uris.
+
+Install
+-------
+
+    # There's a gem dependency bug in rubygems currently, so we'll have to
+    # install dependencies manually. This will be fixed soon.
+    gem install stackdeck
+    gem install johnson -v "2.0.0.pre0"
+
+    gem install harmony
 
 Acknowledgement
 ---------------

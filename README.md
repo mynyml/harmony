@@ -115,6 +115,11 @@ Install
 
     gem install harmony
 
+See Also
+--------
+
+* [holygrail][20]: Harmony plugin for Rails tests
+
 Acknowledgement
 ---------------
 
@@ -153,4 +158,5 @@ YinYang ASCII art is © Normand Veilleux (nveilleuATemr1.emrDOTca)
 [11]: http://github.com/smparkes/env-js/commit/49abe259813a505b0761e6d31dde671344b5bc87#L0R279
 [12]: http://groups.google.com/group/envjs/msg/4ac719f7db7912f5
 [13]: http://gemcutter.org/gems/envjs
+[20]: http://github.com/mynyml/holygrail
 [30]: http://github.com/thatcher/env-js

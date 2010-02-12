@@ -65,6 +65,34 @@ class PageTest < MiniTest::Unit::TestCase
     assert_equal 'bar', page.x('foo()')
   end
 
+  test "can load multiple files as array" do
+    paths = []
+    paths << tempfile(<<-HTML)
+      function foo() { return 'bar' };
+    HTML
+    paths << tempfile(<<-HTML)
+      function moo() { return 'boo' };
+    HTML
+
+    page = Page.new.load(paths)
+    assert_equal 'bar', page.x('foo()')
+    assert_equal 'boo', page.x('moo()')
+  end
+
+  test "can load multiple files as splat" do
+    paths = []
+    paths << tempfile(<<-HTML)
+      function foo() { return 'bar' };
+    HTML
+    paths << tempfile(<<-HTML)
+      function moo() { return 'boo' };
+    HTML
+
+    page = Page.new.load(*paths)
+    assert_equal 'bar', page.x('foo()')
+    assert_equal 'boo', page.x('moo()')
+  end
+
   private
     def tempfile(content)
       Tempfile.open('abc') {|f| f << content; @__path = f.path }

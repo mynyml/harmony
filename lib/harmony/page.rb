@@ -65,15 +65,16 @@ module Harmony
       @window = Window.from_document(document) if document
     end
 
-    # Load a javascript file in page's context
+    # Load one or more javascript files in page's context
     #
-    # @param [String] path
-    #   path to js file
-    #
+    # @param [#to_s, #to_s, ...] paths
+    #   paths to js file
     # @return [Page] self
     #
-    def load(path)
-      window.load(path.to_s)
+    def load(*paths)
+      paths.flatten.each do |path|
+        window.load(path.to_s)
+      end
       self
     end
 

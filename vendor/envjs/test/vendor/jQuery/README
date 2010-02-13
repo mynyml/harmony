@@ -1,2 +1,0 @@
-Note: To avoid adding to Git an entire jQuery development tree for each tag we want to test,
-the bin/test-jquery.sh script will checkout the tag into this directory.

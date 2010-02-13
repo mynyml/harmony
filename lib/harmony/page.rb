@@ -2,7 +2,7 @@ require 'pathname'
 require 'tempfile'
 
 require 'johnson/tracemonkey'
-require  Pathname(__FILE__).dirname.parent.parent + 'vendor/envjs/lib/envjs/runtime'
+require 'envjs/runtime'
 
 module Harmony
   class Page

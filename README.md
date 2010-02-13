@@ -112,7 +112,6 @@ Install
     # install dependencies manually. This will be fixed soon.
     gem install stackdeck
     gem install johnson -v "2.0.0.pre1"
-    gem install envjs
 
     gem install harmony
 

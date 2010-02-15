@@ -110,6 +110,14 @@ module Harmony
     def document
       window.document
     end
+
+    # Page as html document
+    #
+    # @return [String] html
+    #
+    def to_html
+      document.innerHTML
+    end
   end
 end
 

@@ -110,15 +110,6 @@ module Harmony
     def document
       window.document
     end
-
-    # Page's document at current state
-    #
-    # @return [String]
-    #   document as string
-    #
-    def to_s
-      document.innerHTML
-    end
   end
 end
 

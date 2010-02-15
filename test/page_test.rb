@@ -53,10 +53,6 @@ class PageTest < MiniTest::Unit::TestCase
     assert_empty Page.new.document.title
   end
 
-  test "casting to string" do
-    assert_equal "<html><head><title></title></head><body></body></html>", Page.new.to_s
-  end
-
   test "loads javascript file" do
     path = tempfile(<<-HTML)
       function foo() { return 'bar' };

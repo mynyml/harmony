@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.version             =  Harmony::VERSION
   s.files               =  File.read("Manifest").strip.split("\n")
 
-  s.add_dependency 'johnson', '2.0.0.pre1'
-  s.add_dependency 'envjs', '0.1.2'
+  s.add_dependency 'johnson', '2.0.0.pre2'
+  s.add_dependency 'envjs', '0.1.4'
   s.add_development_dependency 'minitest'
 end

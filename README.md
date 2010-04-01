@@ -109,7 +109,7 @@ Install
 -------
 
     # There's a gem dependency bug in rubygems currently, so we'll have to
-    # install dependencies manually. This will be fixed soon.
+    # install some dependencies manually. This will be fixed soon.
     gem install stackdeck
     gem install johnson -v "2.0.0.pre3"
 

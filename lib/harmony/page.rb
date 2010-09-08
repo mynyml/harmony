@@ -26,7 +26,12 @@ module Harmony
       end
 
       def from_document(document)
-        Tempfile.open('harmony') {|f| f << document; @path = f.path }
+        # Allow passing of File objects: Harmony::Page.new(open('index.html'))
+        if document.is_a? File
+          @path = File.expand_path document.path
+        else
+          Tempfile.open('harmony') {|f| f << document; @path = f.path }
+        end
         from_uri("file://#{@path}")
       end
 

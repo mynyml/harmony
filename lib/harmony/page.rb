@@ -73,7 +73,9 @@ module Harmony
     #
     def load(*paths)
       paths.flatten.each do |path|
-        window.load(path.to_s)
+        path.to_s.map {|f|
+          window.evaluate(File.read(f).gsub(/\A#!.*$/, ''), f, 1)
+        }.last
       end
       self
     end
